@@ -36,16 +36,26 @@
   }
 
 
+
 $(document).ready(function() {
   /* On peut travailler sur le DOM */
-  let damier = $('#damier');
-  for (let i = 0; i < 8; ++i){
-    let tr = $('<tr />');
-    for (let j = 0; j < 8; ++j){
-      tr.append($('<td />').addClass((((j+i)%2)==0 ? 'case-blanche' : 'case-noire')).html('O'));
+
+  function Damier(sizeX, sizeY, dest){
+    let damier = $(dest);
+    for (let i = 0; i < sizeX; ++i){
+      let tr = $('<tr />');
+      for (let j = 0; j < sizeY; ++j){
+        tr.append($('<td />').addClass((((j+i)%2)==0 ? 'case-blanche' : 'case-noire')).html('O'));
+      }
+      damier.append(tr);
     }
-    damier.append(tr);
   }
+
+  Damier(4,4, '#damier1');
+  Damier(8,8, '#damier2');
+
+
+
 
   let case_blanche=$('.case-blanche');
   let case_noire=$('.case-noire');
