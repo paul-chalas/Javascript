@@ -6,16 +6,6 @@ let Grid;
         return Math.floor(Math.random() * Math.floor(max));
     }
 
-    let css_openned = {
-        'background-color': 'grey',
-        'font-size': 'bolder',
-        'border': 'solid 1px black',
-        'color': 'white',
-        'height': '30px',
-        'width': '30px',
-        'text-align': 'center'
-    }
-
     Grid = function(largeur, hauteur, destination){
         this.largeur = largeur;
         this.hauteur = hauteur;
@@ -31,8 +21,11 @@ let Grid;
 
                 $(this).data('state', 1);
                 $(this).html($(this).data('value'));
-                $(this).css(css_openned);
             }
+        };
+
+        let add_items = function(number, value){
+            slots.push([number, value]);
         };
 
         let creer_case_noire = function(x,y, value) {
